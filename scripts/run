@@ -1,0 +1,1 @@
+scripts/build && http-server -a $IP -p $PORT build
