@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="org.canary.crithagra">
+<html ng-app="crithagra">
     <head>
         <title>
             Canary
@@ -7,7 +7,128 @@
         <link rel="stylesheet" href="css/crithagra.min.css">
     </head>
     <body>
-        <div ng-view></div>
-        <script type="text/javascript" src="js/crithagra.min.js"></script>
+        <div class="container">
+            <br />
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a href="#/" class="navbar-brand">
+                        Canary
+                    </a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#/post">Posts</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-view></div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="https://github.com/HarveyK86/Serinus">
+                                Serinus Server
+                            </a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-pencil" />
+                                </div>
+                                <div class="col-xs-10">
+                                    Java
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-wrench" />
+                                </div>
+                                <div class="col-xs-10">
+                                    Spring Boot, Hibernate
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-menu-hamburger" />
+                                </div>
+                                <div class="col-xs-10">
+                                    Jetty, HSQLDB
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-object-align-bottom" />
+                                </div>
+                                <div class="col-xs-10">
+                                    Gradle
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-hdd" />
+                                </div>
+                                <div class="col-xs-10">
+                                    1 CPU, 512MB RAM and 1GB HDD
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a href="https://github.com/HarveyK86/Crithagra">
+                                Crithagra GUI
+                            </a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-pencil" />
+                                </div>
+                                <div class="col-xs-10">
+                                    CoffeeScript, HTML, CSS
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-wrench" />
+                                </div>
+                                <div class="col-xs-10">
+                                    AngularJS, Bootstrap
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-menu-hamburger" />
+                                </div>
+                                <div class="col-xs-10">
+                                    Node.js
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-object-align-bottom" />
+                                </div>
+                                <div class="col-xs-10">
+                                    Grunt
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1">
+                                    <span class="glyphicon glyphicon-hdd" />
+                                </div>
+                                <div class="col-xs-10">
+                                    1 CPU, 512MB RAM and 1GB HDD
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/crithagra.js"></script>
     </body>
 </html>
