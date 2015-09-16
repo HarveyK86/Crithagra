@@ -1,10 +1,17 @@
-<div class="container">
-    <br />
-    <div class="navbar navbar-default">
-        <div class="navbar-header">
-            <a href="" class="navbar-brand">
-                Canary
-            </a>
+<div ng-controller="PostController as postController" ng-init="postController.init()" class="panel panel-default">
+    <div class="panel-heading">
+        Posts
+    </div>
+    <div class="panel-body">
+        <div ng-repeat="post in posts | orderBy:'-id'">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{ post.title }}
+                </div>
+                <div class="panel-body">
+                    {{ post.body }}
+                </div>
+            </div>
         </div>
     </div>
 </div>
