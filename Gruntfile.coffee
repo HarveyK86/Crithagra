@@ -33,7 +33,9 @@ module.exports = (grunt) ->
         concat:
 
             coffee:
-                src: ["src/coffee/**/*.coffee"]
+                src: ["src/coffee/crithagra.coffee",
+                      "src/coffee/controller/*.coffee",
+                      "src/coffee/resource/*.coffee"]
                 dest: "build/coffee/crithagra.coffee"
 
             css:
@@ -43,6 +45,7 @@ module.exports = (grunt) ->
 
             js:
                 src: ["bower_components/angular/angular.js",
+                      "bower_components/angular-resource/angular-resource.js",
                       "bower_components/angular-route/angular-route.js",
                       "build/js/crithagra.js"]
                 dest: "build/js/crithagra.js"
@@ -51,7 +54,7 @@ module.exports = (grunt) ->
         copy:
 
             fonts:
-                src: ["bower_components/bootstrap/dis/fonts/*"]
+                src: ["bower_components/bootstrap/dist/fonts/*"]
                 dest: "build/fonts/"
                 expand: true
                 flatten: true
