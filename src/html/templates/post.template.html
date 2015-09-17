@@ -1,15 +1,53 @@
-<div ng-controller="PostController as postController" ng-init="postController.init()" class="panel panel-default">
+<div ng-controller="PostController as postController" ng-init="init()" class="panel panel-default">
     <div class="panel-heading">
-        Posts
+        <div class="row">
+            <div class="col-xs-6">
+                Posts
+            </div>
+            <div class="col-xs-6 text-right">
+                <button type="button" ng-if="isAddable()" ng-click="add()" ng-disabled="isAdding()" class="btn btn-xs btn-default">
+                    <span class="glyphicon glyphicon-plus" />
+                </button>
+            </div>
+        </div>
     </div>
     <div class="panel-body">
         <div ng-repeat="post in posts | orderBy:'-id'">
-            <div class="panel panel-default">
+            <div class="panel panel-info">
                 <div class="panel-heading">
-                    {{ post.title }}
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div ng-if="!isEditing(post)">
+                                {{ post.title }}
+                            </div>
+                            <div ng-if="isEditing(post)" class="{{ !isConfirmable(post) ? 'has-feedback has-error' : ''}}">
+                                <input type="text" ng-model="post.newTitle" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <button type="button" ng-if="isEditable(post)" ng-click="edit(post)" ng-disabled="isEditing(post)" class="btn btn-xs btn-info">
+                                <span class="glyphicon glyphicon-pencil" />
+                            </button>
+                            <button type="button" ng-if="isDeletable(post)" ng-click="delete(post)" ng-disabled="isEditing(post)" class="btn btn-xs btn-info">
+                                <span class="glyphicon glyphicon-trash" />
+                            </button>
+
+                            <button type="button" ng-if="isEditing(post)" ng-click="confirm(post)" ng-disabled="!isConfirmable(post)" class="btn btn-xs btn-info">
+                                <span class="glyphicon glyphicon-ok" />
+                            </button>
+                            <button type="button" ng-if="isEditing(post)" ng-click="cancel(post)" ng-disabled="!isCancelable(post)" class="btn btn-xs btn-info">
+                                <span class="glyphicon glyphicon-remove" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
-                    {{ post.body }}
+                    <div ng-if="!isEditing(post)">
+                        {{ post.body }}
+                    </div>
+                    <div ng-if="isEditing(post)" class="{{ !isConfirmable(post) ? 'has-feedback has-error' : ''}}">
+                        <input type="text" ng-model="post.newBody" class="form-control" />
+                    </div>
                 </div>
             </div>
         </div>
