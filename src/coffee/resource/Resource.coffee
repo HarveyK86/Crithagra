@@ -7,9 +7,7 @@ module.factory("Resource", ["$resource", "$log", ($resource, $log) ->
 
     self.init = () ->
         self.log("init")
-
-        self.request = $resource("https://serinus-harveyk86.c9.io/api/:model/:id",
-            {model: "@model", id: "@id"},
+        self.request = $resource("https://serinus-harveyk86.c9.io/api/:model/:id", {model: "@model", id: "@id"},
 
             search:
                 method: "POST"
@@ -46,86 +44,58 @@ module.factory("Resource", ["$resource", "$log", ($resource, $log) ->
         )
 
     self.search = (model, searchParameters, callback) ->
-        self.log("search[model=" + model + ", searchParameters="
-            + searchParameters + ", callback]")
-
+        self.log("search[model=" + model + ", searchParameters=" + searchParameters + ", callback=" + (callback != null) + "]")
         self.request.search(model: model, searchParameters, (results) ->
-            self.log("search[model=" + model + ", searchParameters="
-                + searchParameters + ", callback, returns=" + results + "]")
-
+            self.log("search[model=" + model + ", searchParameters=" + searchParameters + ", callback=" + (callback != null) + ", returns=" + results + "]")
             callback(results)
         )
 
     self.create = (model, modelMap, callback) ->
-        self.log("create[model=" + model + ", modelMap=" + modelMap
-            + ", callback]")
-
+        self.log("create[model=" + model + ", modelMap=" + modelMap + ", callback=" + (callback != null) + "]")
         self.request.create(model: model, modelMap, (result) ->
-            self.log("create[model=" + model + ", modelMap=" + modelMap
-                + ", callback, returns=" + result + "]")
-
+            self.log("create[model=" + model + ", modelMap=" + modelMap + ", callback=" + (callback != null) + ", returns=" + result + "]")
             callback(result)
         )
 
     self.get = (model, id, callback) ->
-        self.log("get[model=" + model + ", id=" + id + ", callback]")
-
+        self.log("get[model=" + model + ", id=" + id + ", callback=" + (callback != null) + "]")
         self.request.get({model: model, id: id}, (result) ->
-            self.log("get[model=" + model + ", id=" + id
-                + ", callback, returns=" + result + "]")
-
+            self.log("get[model=" + model + ", id=" + id + ", callback=" + (callback != null) + ", returns=" + result + "]")
             callback(result)
         )
 
     self.getAll = (model, callback) ->
-        self.log("getAll[model=" + model + ", callback]")
-
+        self.log("getAll[model=" + model + ", callback=" + (callback != null) + "]")
         self.request.getAll(model: model, (results) ->
-            self.log("getAll[model=" + model + ", callback, returns=" + results
-                + "]")
-
+            self.log("getAll[model=" + model + ", callback=" + (callback != null) + ", returns=" + results + "]")
             callback(results);
         )
 
     self.getLightweight = (model, id, callback) ->
-        self.log("getLightweight[model=" + model + ", callback]")
-
+        self.log("getLightweight[model=" + model + ", callback=" + (callback != null) + "]")
         self.request.getLightweight({model: model, id: id}, (result) ->
-            self.log("getLightweight[model=" + model + ", id=" + id
-                + ", callback, returns=" + result + "]")
-
+            self.log("getLightweight[model=" + model + ", id=" + id + ", callback=" + (callback != null) + ", returns=" + result + "]")
             callback(result)
         )
 
     self.getAllLightweight = (model, callback) ->
-        self.log("getAllLightweight[model=" + model + ", callback]")
-
+        self.log("getAllLightweight[model=" + model + ", callback=" + (callback != null) + "]")
         self.request.getAllLightweight(model: model, (results) ->
-            self.log("getAllLightweight[model=" + model + ", callback, returns="
-                + results + "]")
-
+            self.log("getAllLightweight[model=" + model + ", callback=" + (callback != null) + ", returns=" + results + "]")
             callback(results)
         )
 
-    self.override = (model, id, modelMap, callback) ->
-        self.log("override[model=" + model + ", id=" + id + ", modelMap="
-            + modelMap + ", callback]")
+    self.override = (model, modelMap, callback) ->
+        self.log("override[model=" + model + ", modelMap=" + modelMap + ", callback=" + (callback != null) + "]")
+        self.request.override({model: model, id: modelMap.id}, modelMap, callback)
 
-        request = new self.request(modelMap)
-        request.$override({model: model, id: id}, callback)
-
-    self.update = (model, id, modelMap, callback) ->
-        self.log("update[model=" + model + ", id=" + id + ", modelMap="
-            + modelMap + ", callback]")
-
-        request = new self.request(modelMap)
-        request.$update({model: model, id: id}, callback)
+    self.update = (model, modelMap, callback) ->
+        self.log("update[model=" + model + ", modelMap=" + modelMap + ", callback=" + (callback != null) + "]")
+        self.request.update({model: model, id: modelMap.id}, modelMap, callback)
 
     self.delete = (model, id, callback) ->
-        self.log("delete[model=" + model + ", id=" + id + ", callback]")
-
-        request = new self.request()
-        request.delete({model: model, id: id}, callback)
+        self.log("delete[model=" + model + ", id=" + id + ", callback=" + (callback != null) + "]")
+        self.request.delete({model: model, id: id}, callback)
 
     self.log = (message) ->
         $log.log("Resource : " + message)
