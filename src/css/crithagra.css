@@ -1,0 +1,39 @@
+@font-face {
+
+    font-family: "Symbola";
+    src:url("//s3-eu-west-1.amazonaws.com/tw-font/symbola/symbola.eot");
+    src:url("//s3-eu-west-1.amazonaws.com/tw-font/symbola/symbola.eot?#iefix") format("'embedded-opentype"),
+    url("//s3-eu-west-1.amazonaws.com/tw-font/symbola/symbola.woff") format("woff"),
+    url("//s3-eu-west-1.amazonaws.com/tw-font/symbola/symbola.ttf") format("truetype"),
+    url("//s3-eu-west-1.amazonaws.com/tw-font/symbola/symbola.svg#FontAwesomeRegular") format("svg");
+}
+
+.site-title {
+    font-family: "Symbola";
+    font-size: 32px;
+}
+
+.post-title {
+
+    padding-left: 6px;
+    padding-top: 1px;
+}
+
+.post-title-input {
+
+    height:22px;
+    padding-left: 5px;
+}
+
+.post-body {
+
+    padding-bottom: 1px;
+    padding-left: 6px;
+    padding-top: 1px;
+}
+
+.post-body-input {
+
+    height:22px;
+    padding-left: 5px;
+}
