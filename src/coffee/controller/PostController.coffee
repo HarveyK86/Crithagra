@@ -57,9 +57,21 @@ module.controller("PostController", ["Resource", "$scope", "$log", (resource, $s
         self.log("delete[post=" + post + "]")
         resource.delete("post", post.id, this.init)
 
+    $scope.isNewTitleValid = (post) ->
+        self.log("isNewTitleValid[post=" + post + "]")
+        isNewTitleValid = post.newTitle != null && post.newTitle != ""
+        self.log("isNewTitleValid[post=" + post + ", returns=" + isNewTitleValid + "]")
+        isNewTitleValid
+
+    $scope.isNewBodyValid = (post) ->
+        self.log("isNewBodyValid[post=" + post + "]")
+        isNewBodyValid = post.newBody != null && post.newBody != ""
+        self.log("isNewBodyValid[post=" + post + ", returns=" + isNewBodyValid + "]")
+        isNewBodyValid
+
     $scope.isConfirmable = (post) ->
         self.log("isConfirmable[post=" + post + "]")
-        isConfirmable = post.newTitle != null && post.newTitle != "" && post.newBody != null && post.newBody != "" && this.isEditing(post)
+        isConfirmable = this.isNewTitleValid(post) && this.isNewBodyValid(post) && this.isEditing(post)
         self.log("isConfirmable[post=" + post + ", returns=" + isConfirmable + "]")
         isConfirmable
 
