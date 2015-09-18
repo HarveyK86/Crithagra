@@ -25,6 +25,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6 text-right">
+                            {{ post.edited == 0 ? (post.created | date:"'Created: ' dd-MM-yyyy HH:mm 'GMT'": "GMT") : (post.edited | date:"'Edited: ' dd-MM-yyyy HH:mm 'GMT'": "GMT") }}
                             <button type="button" ng-if="isEditable(post)" ng-click="edit(post)" ng-disabled="isEditing(post)" class="btn btn-xs btn-default">
                                 <span class="glyphicon glyphicon-pencil" />
                             </button>
