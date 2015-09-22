@@ -1,4 +1,4 @@
-<div ng-controller="PostController as postController" ng-init="init()" class="panel panel-default">
+<div ng-controller="PostController as postController" ng-init="postController.init()" class="panel panel-default">
     <div class="panel-heading">
         <div class="row">
             <div class="col-xs-6">
@@ -17,11 +17,11 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <div ng-if="!isEditing(post)" class="post-title">
+                            <div ng-if="!isEditing(post)" class="custom-label">
                                 {{ post.title }}
                             </div>
                             <div ng-if="isEditing(post)" class="{{ !isNewTitleValid(post) ? 'has-feedback has-error' : ''}}">
-                                <input type="text" placeholder="Please type a post title here..." ng-model="post.newTitle" class="form-control post-title-input" />
+                                <input type="text" placeholder="Post title..." ng-model="post.newTitle" class="form-control custom-input" />
                             </div>
                         </div>
                         <div class="col-xs-6 text-right">
@@ -43,11 +43,11 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <div ng-if="!isEditing(post)" class="post-body">
+                    <div ng-if="!isEditing(post)" class="custom-label">
                         {{ post.body }}
                     </div>
                     <div ng-if="isEditing(post)" class="{{ !isNewBodyValid(post) ? 'has-feedback has-error' : ''}}">
-                        <input type="text" placeholder="Please type your post here..." ng-model="post.newBody" class="form-control post-body-input" />
+                        <input type="text" placeholder="Post body..." ng-model="post.newBody" class="form-control custom-input" />
                     </div>
                 </div>
             </div>
