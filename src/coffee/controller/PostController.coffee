@@ -3,18 +3,19 @@ module = angular.module("crithagra.controller")
 module.controller("PostController", ["Resource", "$scope", "$log", (resource, $scope, $log) ->
     self = this
 
-    self.adding = null
+    self.adding
     $scope.posts
 
-    $scope.init = () ->
+    self.init = () ->
         self.log("init")
+        self.adding = null
         resource.getAll("post", (posts) ->
             $scope.posts = posts
         )
 
     $scope.isAddable = () ->
         self.log("isAddable")
-        isAddable = true
+        isAddable = true #permission
         self.log("isAddable[returns=" + isAddable + "]")
         isAddable
 
@@ -37,7 +38,7 @@ module.controller("PostController", ["Resource", "$scope", "$log", (resource, $s
 
     $scope.isEditing = (post) ->
         self.log("isEditing[post=" + post + "]")
-        isEditing = post.editing == true
+        isEditing = post.editing == true #permission
         self.log("isEditing[post=" + post + ", returns=" + isEditing + "]")
         isEditing
 
@@ -49,7 +50,7 @@ module.controller("PostController", ["Resource", "$scope", "$log", (resource, $s
 
     $scope.isDeletable = (post) ->
         self.log("isDeletable[post=" + post + "]")
-        isDeletable = true && !this.isEditing(post)
+        isDeletable = true && !this.isEditing(post) #permission
         self.log("isDeletable[post=" + post + ", returns=" + isDeletable + "]")
         isDeletable
 
