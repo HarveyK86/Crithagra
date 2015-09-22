@@ -56,7 +56,7 @@ module.controller("PostController", ["Resource", "$scope", "$log", (resource, $s
 
     $scope.delete = (post) ->
         self.log("delete[post=" + post + "]")
-        resource.delete("post", post.id, this.init)
+        resource.delete("post", post.id, self.init)
 
     $scope.isNewTitleValid = (post) ->
         self.log("isNewTitleValid[post=" + post + "]")
@@ -82,10 +82,10 @@ module.controller("PostController", ["Resource", "$scope", "$log", (resource, $s
         post.body = post.newBody
         if self.adding == post
             this.cancel(post)
-            resource.create("post", post, this.init)
+            resource.create("post", post, self.init)
         else
             this.cancel(post)
-            resource.override("post", post, this.init)
+            resource.override("post", post, self.init)
 
     $scope.isCancelable = (post) ->
         self.log("isCancelable[post=" + post + "]")
