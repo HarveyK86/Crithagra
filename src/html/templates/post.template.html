@@ -6,7 +6,7 @@
             </div>
             <div class="col-xs-6 text-right">
                 <button type="button" ng-if="isAddable()" ng-click="add()" ng-disabled="isAdding()" class="btn btn-xs btn-default">
-                    <span class="glyphicon glyphicon-plus" />
+                    <span class="glyphicon glyphicon-plus green" />
                 </button>
             </div>
         </div>
@@ -27,17 +27,17 @@
                         <div class="col-xs-6 text-right">
                             {{ post.edited == 0 ? (post.created | date:"'Created: ' dd-MM-yyyy HH:mm 'GMT'": "GMT") : (post.edited | date:"'Edited: ' dd-MM-yyyy HH:mm 'GMT'": "GMT") }}
                             <button type="button" ng-if="isEditable(post)" ng-click="edit(post)" ng-disabled="isEditing(post)" class="btn btn-xs btn-default">
-                                <span class="glyphicon glyphicon-pencil" />
+                                <span class="glyphicon glyphicon-asterisk orange" />
                             </button>
                             <button type="button" ng-if="isDeletable(post)" ng-click="delete(post)" ng-disabled="isEditing(post)" class="btn btn-xs btn-default">
-                                <span class="glyphicon glyphicon-trash" />
+                                <span class="glyphicon glyphicon-remove red" />
                             </button>
 
                             <button type="button" ng-if="isEditing(post)" ng-click="confirm(post)" ng-disabled="!isConfirmable(post)" class="btn btn-xs btn-default">
-                                <span class="glyphicon glyphicon-ok" />
+                                <span class="glyphicon glyphicon-ok green" />
                             </button>
                             <button type="button" ng-if="isEditing(post)" ng-click="cancel(post)" ng-disabled="!isCancelable(post)" class="btn btn-xs btn-default">
-                                <span class="glyphicon glyphicon-remove" />
+                                <span class="glyphicon glyphicon-remove red" />
                             </button>
                         </div>
                     </div>
