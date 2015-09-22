@@ -1,0 +1,35 @@
+<div ng-controller="LoginController as loginController" ng-init="loginController.init()" class="panel panel-default">
+    <div class="panel-heading">
+        Login (Work in Progress)
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-3 text-right custom-label">
+                Username:
+            </div>
+            <div class="{{ isUsernameValid() ? 'col-xs-6' : 'col-xs-6 has-feedback has-error'}}">
+                <input type="text" placeholder="Username..." ng-model="form.username" class="form-control custom-input" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-3 text-right custom-label">
+                Password:
+            </div>
+            <div class="{{ isPasswordValid() ? 'col-xs-6' : 'col-xs-6 has-feedback has-error'}}">
+                <input type="password" placeholder="Password..." ng-model="form.password" class="form-control custom-input" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-3">
+                
+            </div>
+            <div class="col-xs-6">
+                <button type="button" ng-click="login()" ng-disabled="!isLoginable()" class="col-xs-12 btn btn-xs btn-default">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
