@@ -10,17 +10,27 @@
         <div class="container">
             <br />
             <div class="navbar navbar-default">
-                <div class="navbar-header">
-                    <a href="#/" class="navbar-brand site-title">
-                        🐦
-                    </a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="#/post">Posts</a>
-                        </li>
-                    </ul>
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="#/" class="navbar-brand site-title">
+                            🐦
+                        </a>
+                    </div>
+                    <div ng-controller="LoginController as loginController" ng-init="postController.init()">
+                        <ul ng-if="isLoggedIn()" class="nav navbar-nav">
+                            <li>
+                                <a href="#/post">Posts</a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li ng-if="!isLoggingIn() && !isLoggedIn()">
+                                <a href="#/login">Login</a>
+                            </li>
+                            <li ng-if="isLogoutable()">
+                                <a href="" ng-click="logout()">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div ng-view></div>
