@@ -8,9 +8,39 @@
     url("//s3-eu-west-1.amazonaws.com/tw-font/symbola/symbola.svg#FontAwesomeRegular") format("svg");
 }
 
+.gray {
+    color: gray;
+}
+
+.green {
+    color: green;
+}
+
+.orange {
+
+    /*color: orange;*/
+    color: #ff9900;
+}
+
+.red {
+
+    /*color: red;*/
+    color: #cc0000;
+}
+
 .site-title {
+
+    color: yellow !important;
     font-family: "Symbola";
-    font-size: 32px;
+    font-size: 96px;
+    padding-top: 10px;
+    padding-right: 0px;
+    text-shadow:
+        2px  2px 0 black,
+       -1px -1px 0 black,
+        1px -1px 0 black,
+       -1px  1px 0 black,
+        1px  1px 0 black;
 }
 
 .custom-label {
