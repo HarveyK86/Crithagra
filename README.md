@@ -4,4 +4,4 @@
 
 To use this project run;
 
-1. `./scripts/run.sh
+1. `./scripts/run.sh`
