@@ -1,2 +1,7 @@
 # Crithagra
-Crithagra Client
+
+**Usage**
+
+To use this project run;
+
+1. `./scripts/run.sh
